@@ -13,7 +13,7 @@ namespace SeleniumConsoleScraper
     {
         static void Main(string[] args)
         {
-            var runScraper = new Scraper();
+            Scraper runScraper = new Scraper();
 
             runScraper.Scrape();
            
