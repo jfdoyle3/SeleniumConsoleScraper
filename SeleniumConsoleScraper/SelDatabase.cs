@@ -23,12 +23,14 @@ namespace SeleniumConsoleScraper
                 {
                     connection.Open();
 
-                    SqlCommand insertStatement = new SqlCommand("INSERT into [SelStockTable] (TimeStamp, Symbol, Change, Time, ChgPct, Price, Closing,Method) VALUES (@TimeStamp, @Symbol, @Change, @Time, @ChgPct, @Price, @Closing, @Method)", connection);
-                    insertStatement.Parameters.AddWithValue("@TimeStamp", DateTime.Now.ToString());
+                    SqlCommand insertStatement = new SqlCommand("INSERT into [SelStockTable] (DateStamp, Symbol, LastPrice, Change, ChgPc, MarketTime, Volume, Price, AvgVol3m, MarketCap,Method) VALUES (@DateStamp, @Symbol, @LastPrice, @Change, @ChgPc, @MarketTime, @Volume, @Price, @AvgVol3m, @MarketCap, @Method)", connection);
+                    insertStatement.Parameters.AddWithValue("@DateStamp", DateTime.Now.ToString());
                     insertStatement.Parameters.AddWithValue("@Symbol", stock["symbol"].ToString());
-                    insertStatement.Parameters.AddWithValue("@Change", stock["regularMarketChange"]["fmt"].ToString());
+                    insertStatement.Parameters.AddWithValue("@LastPrice", stock["lastPrice"]["fmt"].ToString());
+                    insertStatement.Parameters.AddWithValue("@Change", stock["marketChange"]["fmt"].ToString());insertStatement.Parameters.AddWithValue("@ChgPct", stock["regularMarketChangePercent"]["fmt"].ToString());
                     insertStatement.Parameters.AddWithValue("@Time", stock["regularMarketTime"]["fmt"].ToString());
-                    insertStatement.Parameters.AddWithValue("@ChgPct", stock["regularMarketChangePercent"]["fmt"].ToString());
+                    insertStatement.Parameters.AddWithValue("@Change", stock["regularMarketChange"]["fmt"].ToString());
+                    
                     insertStatement.Parameters.AddWithValue("@Price", stock["regularMarketPrice"]["fmt"].ToString());
                     insertStatement.Parameters.AddWithValue("@Closing", stock["regularMarketPreviousClose"]["fmt"].ToString());
                     insertStatement.Parameters.AddWithValue("@Method", type);

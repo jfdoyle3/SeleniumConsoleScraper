@@ -28,7 +28,7 @@ namespace SeleniumConsoleScraper
         //                Volume = stockList[i].ToString(),
         //                AvgVol3m = stockList[i].ToString(),
         //                MarketCap = stockList[i][1.ToString(),
-        //                Method = stocklist,
+        //                Method = type,
         //            };
         //
         //            db.StockTables.Add(stockTable);
