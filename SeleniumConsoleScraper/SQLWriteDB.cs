@@ -4,9 +4,9 @@ using System.Data.SqlClient;
 
 namespace SeleniumConsoleScraper
 {
-     public class SqlWriteDB
+    public class SqlWriteDB
     {
-        public void SeleniumStocks(List<string> stockList)
+        public static void SeleniumStocks(List<string> stockList)
         {
             Console.Write("connecting to SeleniumDB: ");
             string connectionstring = @"data source=(localdb)\mssqllocaldb;initial catalog=SeleniumDB;integrated security=true";
@@ -41,4 +41,5 @@ namespace SeleniumConsoleScraper
             }
         }
     }
-}
+      
+

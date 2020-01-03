@@ -14,14 +14,9 @@ namespace SeleniumConsoleScraper
         static void Main(string[] args)
         {
             Scraper stockList = new Scraper();
-            
-           
-           
-        }
+            SqlWriteDB.SeleniumStocks(stockList);
 
-        private static void SQLWriteDB(Scraper stockList)
-        {
-            throw new NotImplementedException();
+
         }
     }
 }
